@@ -46,7 +46,10 @@ public class UserController
     {
         User user = userRepository.findOne(userId);
 
-        if (user == null) throw new EntityNotFoundException(String.format("User id %s not found", userId));
+        if (user == null)
+        {
+            throw new EntityNotFoundException(String.format("User id %s not found", userId));
+        }
 
         return user;
     }
@@ -54,12 +57,11 @@ public class UserController
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public User create(@RequestBody @Valid NewUser newUser, BindingResult result)
     {
-        if (result.hasErrors()) throw new BadRequestException("Illegal body content");
+        if (result.hasErrors())
+        {
+            throw new BadRequestException("Illegal body content");
+        }
 
         return userService.createNewUser(newUser);
     }
-
-    // TODO change password
-    // TODO change email address
-    // TODO delete user
 }

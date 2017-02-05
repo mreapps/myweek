@@ -35,9 +35,10 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
                 context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate()).addPropertyNode(secondFieldName).addConstraintViolation();
                 return false;
             }
-        } catch (final Exception ignore)
+        }
+        catch (final Exception e)
         {
-            // ignore
+            throw new IllegalArgumentException("Unable to access field", e);
         }
         return true;
     }
