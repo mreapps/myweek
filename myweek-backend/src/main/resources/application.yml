@@ -1,0 +1,12 @@
+spring:
+    datasource:
+        username: myweek
+        password: myweek
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/myweek
+---
+
+spring:
+    profiles: production
+    datasource:
+        url: jdbc:postgresql://postgres:5432/myweek

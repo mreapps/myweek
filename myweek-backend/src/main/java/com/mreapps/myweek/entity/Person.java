@@ -49,4 +49,5 @@ public class Person extends AbstractEntity
             joinColumns = @JoinColumn(name = "person_uid", referencedColumnName = "uid"),
             inverseJoinColumns = @JoinColumn(name = "user_uid", referencedColumnName = "uid"))
     private Set<User> admins = new HashSet<>();
+
 }
